@@ -2,23 +2,14 @@
 <html>
 <head>
   <title>Shine</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body class="container">
-  <% if notice.present? %>
-    <aside class="alert alert-info">
-      <%= notice %>
-    </aside>
-  <% end %>
-  <% if alert.present? %>
-    <aside class="alert alert-danger">
-      <%= alert %>
-    </aside>
-  <% end %>
+<body class="">
 
-
+  <%= render 'layouts/messages' %>
+  <%= render "layouts/dashboard" unless !current_user %>
   <%= yield %>
 
 </body>
